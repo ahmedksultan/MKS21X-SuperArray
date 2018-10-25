@@ -8,6 +8,9 @@ public class SuperArray {
      }
      public void clear() {
           size = 0;
+          String[] newdata;
+          newdata = new String[10];
+          data = newdata;
      }
      public int size() {
           return size;
@@ -75,4 +78,30 @@ public class SuperArray {
           data = newArray;
      }
      /* PHASE 3 */
+     public boolean contains(String target) {
+          boolean result = false;
+          for (int i = 0; i < data.length; i++) {
+               if (data[i].equals(target)) {
+                    result = true;
+               }
+          }
+          return result;
+     }
+     public int indexOf(String target) {
+          for (int i = 0; i < data.length; i++) {
+               if (data[i].equals(target)) {
+                    return i;
+               }
+          }
+          return (-1);
+     }
+     public int lastIndexOf(String target) {
+          int result = -1;
+          for (int i = 0; i < data.length; i++) {
+               if (data[i].equals(target)) {
+                    result = i;
+               }
+          }
+          return result;
+     }
 }
