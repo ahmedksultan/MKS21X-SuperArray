@@ -1,6 +1,7 @@
 public class SuperArray {
      private String[] data;
      private int size;
+     /* PHASE 1 */
      public SuperArray() {
           size = 0;
           data = new String[10];
@@ -63,4 +64,15 @@ public class SuperArray {
                return "Replaced: " + r + " // with: " + e;
           }
      }
+     /* PHASE 2 */
+     private void resize() {
+          String[] newArray;
+          newArray = new String[size*2];
+          for (int i = 0; i < data.length; i++) {
+               newArray[i] = data[i];
+          }
+          size = size*2;
+          data = newArray;
+     }
+     /* PHASE 3 */
 }
