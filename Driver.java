@@ -50,5 +50,7 @@ public class Driver {
           System.out.println(SA3.toStringDebug());
           SA3.remove(80);
           System.out.println(SA3.toStringDebug());
+          SA3.remove("csgo");
+          System.out.println(SA3.toStringDebug());
      }
 }

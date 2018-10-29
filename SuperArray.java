@@ -119,7 +119,7 @@ public class SuperArray {
      public String remove(int idx) {
           if (idx >= size || idx < 0) {
                System.out.println("ERROR...index out of range!");
-               size = size + 1;
+               return null;
           }
           String r = get(idx);
           for (int i = idx; i < size - 1; i++) {
@@ -129,10 +129,8 @@ public class SuperArray {
           size = size - 1;
           return "Removing: " + r;
      }
-     /*
      public boolean remove(String e) {
-          return contains(e);
           remove(indexOf(e));
+          return contains(e);
      }
-     */
 }
