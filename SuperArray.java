@@ -25,7 +25,10 @@ public class SuperArray {
                return true;
           }
           else {
-               return false;
+               resize();
+               data[size] = e;
+               size += 1;
+               return true;
           }
      }
      public String toString() {
@@ -51,7 +54,7 @@ public class SuperArray {
      }
      public String get(int i) {
           if (i < 0 || i >= size()) {
-               return null;
+               return "ERROR...value out of range!";
           }
           else {
                return "Value @ index" + i + ": " + data[i];
@@ -59,7 +62,7 @@ public class SuperArray {
      }
      public String set(int i, String e) {
           if (i < 0 || i >= size()) {
-               return null;
+               return "ERROR...value out of range!";
           }
           else {
                String r = data[i];
@@ -70,11 +73,10 @@ public class SuperArray {
      /* PHASE 2 */
      private void resize() {
           String[] newArray;
-          newArray = new String[size*2];
+          newArray = new String[size*2 + 1];
           for (int i = 0; i < data.length; i++) {
                newArray[i] = data[i];
           }
-          size = size*2;
           data = newArray;
      }
      /* PHASE 3 */
@@ -104,4 +106,33 @@ public class SuperArray {
           }
           return result;
      }
+     public void add(int idx, String e) {
+          if (size == data.length) {
+               resize();
+               size += 1;
+          }
+          for (int i = size - 1; i >= idx; i--) {
+               data[i+1] = data[i];
+          }
+          data[idx] = e;
+     }
+     public String remove(int idx) {
+          if (idx >= size || idx < 0) {
+               System.out.println("ERROR...index out of range!");
+               size = size + 1;
+          }
+          String r = get(idx);
+          for (int i = idx; i < size - 1; i++) {
+               data[i] = data[i+1];
+          }
+          data[size - 1] = null;
+          size = size - 1;
+          return "Removing: " + r;
+     }
+     /*
+     public boolean remove(String e) {
+          return contains(e);
+          remove(indexOf(e));
+     }
+     */
 }
