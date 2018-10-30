@@ -53,6 +53,9 @@ public class SuperArray {
      }
      public String toStringDebug() {
           String result = "[";
+          if (data.length == 0) {
+               return "[ ]";
+          }
           for (int i = 0; i < data.length - 1; i++) {
                result = result + data[i] + ", ";
           }
