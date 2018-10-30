@@ -38,9 +38,9 @@ public class Driver {
           SA3.set(5, "supersmashbros");
           System.out.println(SA3.toStringDebug()); //[0, 1, 2, fortnite, 4, supersmashbros, 6, 7, 8, 9]
           System.out.println(SA3.contains("fortnite")); //true
-          System.out.println(SA3.contains("fish")); //false
+          System.out.println(SA3.contains("tetris")); //false
           System.out.println(SA3.indexOf("supersmashbros")); //5
-          System.out.println(SA3.indexOf("fish")); //-1
+          System.out.println(SA3.indexOf("tetris")); //-1
           SA3.set(7, "fortnite");
           System.out.println(SA3.indexOf("fortnite")); //3
           System.out.println(SA3.lastIndexOf("fortnite")); //7
@@ -48,9 +48,18 @@ public class Driver {
           System.out.println(SA3.toStringDebug());
           SA3.remove(3);
           System.out.println(SA3.toStringDebug());
-          SA3.remove(80);
           System.out.println(SA3.toStringDebug());
           SA3.remove("csgo");
           System.out.println(SA3.toStringDebug());
+          //////////////////////////////////
+          SuperArray SA4 = new SuperArray(5);
+          System.out.println(SA4.toStringDebug());
+          /* Tested!
+          SuperArray SA4b = new SuperArray(-8); //IllegalArgumentException
+          System.out.println(SA4.get(1000)); //IndexOutOfBoundsException
+          System.out.println(SA4.add("taykeith")); //IndexOutOfBoundsException
+          System.out.println(SA4.remove(-8)); //IndexOutOfBoundsException
+          System.out.println(SA3.set(84, "pubg")); //IndexOutOfBoundsException
+          */
      }
 }
