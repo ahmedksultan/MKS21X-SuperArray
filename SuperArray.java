@@ -67,7 +67,7 @@ public class SuperArray {
                throw new IndexOutOfBoundsException("ERROR - index out of bounds");
           }
           else {
-               return "Value @ index" + i + ": " + data[i];
+               return data[i];
           }
      }
      public String set(int i, String e) {
@@ -77,7 +77,7 @@ public class SuperArray {
           else {
                String r = data[i];
                data[i] = e;
-               return "Replaced: " + r + " // with: " + e;
+               return r;
           }
      }
      /* PHASE 2 */
@@ -117,7 +117,7 @@ public class SuperArray {
           return result;
      }
      public void add(int idx, String e) {
-          if (idx >= size || idx < 0) {
+          if (idx > size || idx < 0) {
                throw new IndexOutOfBoundsException("ERROR - index out of bounds");
           }
           if (size == data.length) {
@@ -130,16 +130,15 @@ public class SuperArray {
           data[idx] = e;
      }
      public String remove(int idx) {
-          if (idx >= size || idx < 0) {
+          if (idx > size || idx < 0) {
                throw new IndexOutOfBoundsException("ERROR - index out of bounds");
           }
           String r = get(idx);
           for (int i = idx; i < size - 1; i++) {
                data[i] = data[i+1];
           }
-          data[size - 1] = null;
           size = size - 1;
-          return "Removing: " + r;
+          return r;
      }
      public boolean remove(String e) {
           remove(indexOf(e));
