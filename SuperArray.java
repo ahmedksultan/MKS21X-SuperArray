@@ -49,18 +49,18 @@ public class SuperArray {
           else {
                result = result + "]";
           }
-          return result + " // SIZE:" + size;
+          return result;
      }
      public String toStringDebug() {
           String result = "[";
           if (data.length == 0) {
-               return "[ ]";
+               return "[]";
           }
           for (int i = 0; i < data.length - 1; i++) {
                result = result + data[i] + ", ";
           }
           result = result + data[data.length - 1] + "]";
-          return result + " // SIZE:" + size;
+          return result;
      }
      public String get(int i) {
           if (i < 0 || i >= size()) {
@@ -122,11 +122,11 @@ public class SuperArray {
           }
           if (size == data.length) {
                resize();
-               size += 1;
           }
-          for (int i = size - 1; i >= idx; i--) {
+          for (int i = idx; i < size; i++) {
                data[i+1] = data[i];
           }
+          size += 1;
           data[idx] = e;
      }
      public String remove(int idx) {
